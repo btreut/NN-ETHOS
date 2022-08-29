@@ -1,0 +1,160 @@
+From: "Clemens A. Szyperski" <szypersk@fit.qut.edu.au>
+Subject: Re: Information On Ethos
+Date: 1995/04/19
+Message-ID: <Pine.SOL.3.91.950419164245.246V-100000@lead.fit.qut.edu.au>
+X-Deja-AN: 101108011
+distribution: world
+content-type: TEXT/PLAIN; charset=US-ASCII
+organization: Queensland University of Technology, Australia
+mime-version: 1.0
+newsgroups: comp.lang.oberon
+
+On 2 Apr 1995, Gaurav Rampal wrote:
+
+> I would appreciate any pointers to information regarding ETHOS.
+> I've heard that its an experimental operating system implented in
+> Oberon.
+
+Ethos is an experimental research operating system that I designed and
+implemented as part of my PhD thesis work. Ethos is an evolutionary
+continuation of the Oberon V1, V2 line of systems. There were two major
+goals: (1) provide extensibility on all levels of the system (for example,
+Ethos has an extensible file system and an extensible approach to the overall
+look and feel), and (2) come up with a small set of general design principles
+followed everywhere. 
+
+I implemented Ethos on a Ceres-3 machine and it is not available in any form.
+My port to Ultrix/Motif was just done to show that it can be done, and
+quickly so, using the foundation modules from DECoberon. Please understand
+that I stopped working on the port as soon as it was clear that all real
+problems have been attacked - after all the port was only a small and minor
+part of my project. Therefore, there is *no* version of Ethos available
+whatsoever. (Just in case that you ask me ;-)
+
+
+However, the Oberon/F framework can be considered an evolutionary successor
+of Ethos. All the main ideas of Ethos, as far as construction of extensible
+systems is concerned, are present in Oberon/F as well. The Oberon/F
+documentation covers most of this. Contact
+
+  Oberon microsystems
+  oberon@oberon.ch   -or-   oberon@applelink.apple.com
+  Solothurnerstr. 45, CH-4053 Basel, Switzerland
+
+for more information on Oberon/F.
+
+
+> Im especially interested in the techniques used for extensibility.
+> From the information Ive got - "Restricting the Use of inheritance
+> proved to  to be the key to manageability and extensibility in Ethos."
+
+There are major problems with standard inheritance:
+
+Code in the base class is *not* sufficiently well documented by its interface
+- intricate self-recursion patterns, where another method of the same class
+is called directly or indirectly and where therefore control flows wildly
+between base and extension code, make maintenance very difficult. 
+
+Some modern languages, such as Sather, even follow the approach to *define*
+code inheritance to be equivalent to textual inclusion, i.e. require full
+textual knowledge of the base class. 
+
+Clearly, that does not work for "virtual base classes" or general
+"delegatees". We would need much stronger formal systems to properly specify
+the interfaces of these, as the actual implementation *cannot* be used (is
+not even known at clien creation time). 
+
+> Does anyone have examples that illustrate the above point.
+
+Almost all uses of inheritance produce examples that illustrate this point
+:-) Try and inherit from a non-trivial class, i.e. one that does more than
+defining an abstract interface, and - without looking at the implementation
+of that base class - try to convince yourself that the 
+
+> Does Ethos use inheritance or delegation?
+
+Ethos uses forwarding. Delegation would be nice for some cases (see my
+thesis), but is not well supported by Oberon(-2).
+
+Inheritance is used whenever the implementation of a method needed to be
+within the scope of a module. Such methods are usually specified by their
+implementing code, e.g. they do no more than setting a read-only field of 
+a record, checking the value for validity.
+
+The problem with inheritance is that you statically base your extension on
+some base. In Ethos, the concept of "directory objects" (sometimes called
+factory objects) is used to obtain an instance of some abstract class. For
+example, Texts.dir.New() returns a new text object. By installing a different
+directory object, the whole system starts to use different text objects. The
+use of such directory objects can of course be local to a single package (~
+application) or to the entire system. 
+
+The general approach in Ethos is to simply not export concrete classes. 
+Almost all exported types are abstract (with the above mentioned exception).
+Extensions use composition and forwarding instead of inheritance. 
+
+
+> I would appreciate any pointers to papers, reports, or ftp sites.
+
+There is not much more around than my thesis; see below. Sorry for that.
+
+
+On 5 Apr 1995, May T. Young wrote:
+
+> In article <3lrkk3$fgq@sifon.cc.mcgill.ca>,
+> Whitney de Vries <whitney@christie.Meakins.McGill.CA> wrote:
+> >Simon Johnston (skj@rb.icl.co.uk) wrote:
+> >: In article <3lkuqj$h2t@csi0.csi.UOttawa.CA>,
+> >:    Gaurav Rampal <grampal@csi.uottawa.ca> wrote:
+> >: >I would appreciate any pointers to information regarding ETHOS. 
+> >
+> >C.A. Szyperski
+> >Insight ETHOS: On Object-Orientation in Operating Systems
+> >ETH Zurich, Dissertation No. 9884(1992)
+> 
+> Last time I checked, the dissertation was no longer availble from ETH
+> but had to be bought from a European publisher (who would only accept
+> payment in marks -- a little bit difficult for me, and I haven't gotten
+> it yet).
+
+My thesis is probably the best source for more information on Ethos.
+Unfortunately, it has been published before ETH decided to put all theses
+on-line as well, and I do not have a softcopy that can still be rendered.
+(I used my own tools to do it, and didn't bother to keep all that up and
+alive ...)
+
+However, it has been published as a book and can be ordered from the
+publisher or probably via your local library/bookstore. It is also available
+via inter-library loan from ETH Zurich, Switzerland, Diss No 9884 (1992) and
+on microfilm from University Microfilms. 
+
+
+The bibliographic details are:
+
+  Clemens A. Szyperski
+  "Insight ETHOS: On Object-Orientation in Operating Systems"
+  Series Informatik-Dissertationen ETH Zuerich, volume 40
+  Verlag der Fachvereine, Zuerich, Switzerland
+  ISBN 3 7281 1948 2
+
+The publisher has changed its name recently to W & H Verlags AG, however the
+ISBN number should do the job. If they accept local currency only, it will be
+Swiss Franks and not marks. I have no idea about their preferred methods of
+payment, but I guess that some market pressure might help :-)
+
+
+Finally: I no longer work on Ethos, although my research interests still
+include the issues of extensibility.
+
+- Clemens Szyperski
+
+
+  Assoc. Prof. Clemens A. Szyperski                            _--_|\
+  School of Computing Science                                 /      QUT
+  Queensland University of Technology                         \_.--._/
+  GPO Box 2434, Brisbane Q 4001, Australia                          v
+  szyperski@fit.qut.edu.au           (+61 7) 864-5222
+  http://www.fit.qut.edu.au/~szypersk     Fax   -1801
+
+
+
