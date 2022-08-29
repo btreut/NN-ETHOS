@@ -1,2 +1,4 @@
 # NN-ETHOS
-Extract from usenet group comp.lang.oberon 
+Extracted post by Clemens Szyperski on usenet group comp.lang.oberon dated 1995/04/19.
+
+Google blocked comp.lang.oberon about 2019/2020 around the same time as comp.lang.lisp and other usenet groups mainly from the comp.lang hierarchy were also blocked. Access to most of these blocked groups were restored, but comp.lang.oberon is still blocked in 2022. I referred in a Wikipedia article to this post, but that link died. Searching for some other usenet archive, which has postings of comp.lang.oberon dating back to 1995, I found only a zipped mbox file at [archive.org](https://archive.org/download/usenet-comp/comp.lang.oberon.mbox.zip) with a size of about 10MB compressed and around 40MB uncompressed and linked to that archive with line numbers. Some Wikipedia bot re-linked it to some other non-functional memento page. So I extracted Clemens Szyperski's post, obscured the outdated email addresses a bit (necessary for an archive created by a German citizen) and made it available here.
