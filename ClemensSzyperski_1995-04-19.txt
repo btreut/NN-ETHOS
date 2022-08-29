@@ -1,4 +1,4 @@
-From: "Clemens A. Szyperski" <szypersk@fit.qut.edu.au>
+From: "Clemens A. Szyperski" <szypersk [at] fit.qut.edu.au>
 Subject: Re: Information On Ethos
 Date: 1995/04/19
 Message-ID: <Pine.SOL.3.91.950419164245.246V-100000@lead.fit.qut.edu.au>
@@ -102,10 +102,10 @@ There is not much more around than my thesis; see below. Sorry for that.
 On 5 Apr 1995, May T. Young wrote:
 
 > In article <3lrkk3$fgq@sifon.cc.mcgill.ca>,
-> Whitney de Vries <whitney@christie.Meakins.McGill.CA> wrote:
-> >Simon Johnston (skj@rb.icl.co.uk) wrote:
-> >: In article <3lkuqj$h2t@csi0.csi.UOttawa.CA>,
-> >:    Gaurav Rampal <grampal@csi.uottawa.ca> wrote:
+> Whitney de Vries <whitney [at] christie.Meakins.McGill.CA> wrote:
+> >Simon Johnston (skj [at] rb.icl.co.uk) wrote:
+> >: In article <3lkuqj$h2t [at] csi0.csi.UOttawa.CA>,
+> >:    Gaurav Rampal <grampal [at] csi.uottawa.ca> wrote:
 > >: >I would appreciate any pointers to information regarding ETHOS. 
 > >
 > >C.A. Szyperski
@@ -153,7 +153,7 @@ include the issues of extensibility.
   School of Computing Science                                 /      QUT
   Queensland University of Technology                         \_.--._/
   GPO Box 2434, Brisbane Q 4001, Australia                          v
-  szyperski@fit.qut.edu.au           (+61 7) 864-5222
+  szyperski [at] fit.qut.edu.au           (+61 7) 864-5222
   http://www.fit.qut.edu.au/~szypersk     Fax   -1801
 
 
